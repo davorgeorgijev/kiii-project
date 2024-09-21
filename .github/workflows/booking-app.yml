@@ -27,7 +27,7 @@ jobs:
       - name: Build frontend image
         run: |
           cd booking-frontend
-          docker build -t dgeorgijev/kiii-project-backend:latest .
+          docker build -t dgeorgijev/kiii-project-frontend:latest .
 
       - name: Push backend image
         run: |
