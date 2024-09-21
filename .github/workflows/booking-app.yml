@@ -19,12 +19,20 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
-      - name: Build Docker images
+      - name: Build backend image
         run: |
-          docker build -t dgeorgijev/kiii-project-backend:latest -f booking-backend/Dockerfile .  
-          docker build -t dgeorgijev/kiii-project-frontend:latest -f booking-frontend/Dockerfile . 
+          cd booking-backend
+          docker build -t dgeorgijev/kiii-project-backend:latest .
 
-      - name: Push Docker images
+      - name: Build frontend image
+        run: |
+          cd booking-frontend
+          docker build -t dgeorgijev/kiii-project-backend:latest .
+
+      - name: Push backend image
         run: |
           docker push dgeorgijev/kiii-project-backend:latest
+
+      - name: Push frontend image
+        run: |
           docker push dgeorgijev/kiii-project-frontend:latest
