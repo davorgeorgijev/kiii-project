@@ -38,7 +38,7 @@ services:
     restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    command: --interval 10
+    command: --interval 30
 
 volumes:
   postgres-data:
