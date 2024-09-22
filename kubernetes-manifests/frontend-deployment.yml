@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  namespace: booking-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: booking-frontend
+  template:
+    metadata:
+      labels:
+        app: booking-frontend
+    spec:
+      containers:
+        - name: booking-frontend
+          image: dgeorgijev/kiii-project-frontend:latest
+          ports:
+            - containerPort: 3000
